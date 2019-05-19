@@ -1,21 +1,31 @@
-ls -l ~/Desktop/> files_to_change.txt
+echo -e "Enter the directory that you would like to edit the permissions for:"
+read changingFile
 
+echo "$changingFile"
+
+currentDir=$(pwd)
+
+echo "$currentDir"
+
+ls -l $changingFile > files_to_change.txt
+cat files_to_change.txt
+#fix the column access for mac
 awk {'print $9'} files_to_change.txt > the_files.txt
 
 max=$(wc -l < the_files.txt)
 
-cd ..
+cd $changingFile
 echo -e "____________________________\nPermissions before:\n"
 ls -l
 echo "____________________________"
 for ((i=2; i<=$max; i++))
 do
 
-file=$(cat ~/Desktop/Permissions-Changer/the_files.txt | head -n "${i}" | tail -n 1)
-echo $file
+file=$(cat $currentDir/the_files.txt | head -n "${i}" | tail -n 1)
+echo "Editing $file"
 if [ "$file" != "Permissions-Changer" ]; then
 
-echo -e "Would you like to edit the permissions for the file: $file\n Yes(y), No(n)"
+echo -e "Would you like to edit the permissions for the file: $file\nYes(y)\nNo(n)\nExit Program(e)"
 while :
 do
 read edit
@@ -98,6 +108,8 @@ done
 
 	chmod $user$perm$type $file
 	echo "changed the permissions on" $file
+	ls -l $file
+	echo ""
 	break
 	;;
 
@@ -106,8 +118,12 @@ done
 	break
 	;;
 
+	e)
+	break 3
+	;;
+
 	*)
-	echo "Enter a valid option Yes(y) or No(n)"
+	echo -e "Enter a valid option\nYes(y)\nNo(n)\nExit Program(e)"
 esac
 done
 else
