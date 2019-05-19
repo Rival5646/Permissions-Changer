@@ -1,8 +1,7 @@
 total 24
--rwxr--r-- 1 john john    7 May 18 22:59 change.exe
-drwxr-xr-x 2 john john 4096 May 18 22:58 file1
-drwxr-xr-x 2 john john 4096 May 18 22:58 file2
--rwxr--r-- 1 john john    0 May 19 00:41 files_to_change.txt
--rwxr--r-- 1 john john  191 May 19 00:41 testing.sh
--rwxrw-r-- 1 john john   30 May 14 14:11 test.py
--rw-r--r-- 1 john john   77 May 19 00:40 the_files.txt
+-rw-r-x--- 1 john john    7 May 18 22:59 change.exe
+drw-r-xr-- 2 john john 4096 May 18 22:58 file1
+drw-r-xr-- 2 john john 4096 May 18 22:58 file2
+-rw-r-xr-- 1 john john   93 May 19 02:48 ifTest.sh
+drwxr-xr-x 3 john john 4096 May 19 17:37 Permissions-Changer
+-rw-rwxr-- 1 john john   30 May 14 14:11 test.py

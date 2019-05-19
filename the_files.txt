@@ -2,7 +2,6 @@
 change.exe
 file1
 file2
-files_to_change.txt
-testing.sh
+ifTest.sh
+Permissions-Changer
 test.py
-the_files.txt
